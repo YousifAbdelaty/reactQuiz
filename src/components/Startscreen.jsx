@@ -7,7 +7,7 @@ const Startscreen = ({ questionsNumber, dispatch }) => {
       <h3>{questionsNumber} Questions to test your React mastery</h3>
       <button
         className="btn btn-ui"
-        onClick={() => dispatch({ type: "start " })}
+        onClick={() => dispatch({ type: "start" })}
       >
         Let's start
       </button>
