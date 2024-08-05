@@ -8,6 +8,8 @@ import Startscreen from "./Startscreen";
 import Question from "./Question";
 import NextButton from "./NextButton";
 import Progress from "./Progress";
+import FinishScreen from "./FinishScreen";
+import RestartButton from "./RestartButton";
 const initialState = {
   questions: [],
   // 'loading','error','ready','active','finshed'//
@@ -15,6 +17,7 @@ const initialState = {
   index: 0,
   answer: null,
   score: 0,
+  highScore: 0,
 };
 function reducer(state, action) {
   switch (action.type) {
@@ -36,16 +39,29 @@ function reducer(state, action) {
       };
     case "nextQuestion":
       return { ...state, index: state.index + 1, answer: null };
+    case "restart":
+      return {
+        ...initialState,
+        status: "active",
+        questions: state.questions,
+        highScore: state.highScore,
+      };
+
+    case "finished":
+      return {
+        ...state,
+        status: "finished",
+        highScore:
+          state.score > state.highScore ? state.score : state.highScore,
+      };
 
     default:
       throw new Error("action unKnown");
   }
 }
 const App = () => {
-  const [{ questions, answer, index, status, score }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [{ questions, highScore, answer, index, status, score }, dispatch] =
+    useReducer(reducer, initialState);
   const questionsNumber = questions.length;
   const maxPossibleScore = questions.reduce(
     (prev, curr) => prev + curr.points,
@@ -69,6 +85,16 @@ const App = () => {
       <Master>
         {status === "loading" && <Loader />}
         {status === "error" && <Error />}
+        {status === "finished" && (
+          <>
+            <FinishScreen
+              score={score}
+              highScore={highScore}
+              maxPossibleScore={maxPossibleScore}
+            />
+            <RestartButton dispatch={dispatch} />
+          </>
+        )}
         {status === "active" && (
           <>
             <Progress
@@ -83,7 +109,12 @@ const App = () => {
               answer={answer}
               question={questions[index]}
             />
-            <NextButton dispatch={dispatch} answer={answer} />
+            <NextButton
+              dispatch={dispatch}
+              index={index}
+              numQuestions={questionsNumber}
+              answer={answer}
+            />
           </>
         )}
         {status === "ready" && (
