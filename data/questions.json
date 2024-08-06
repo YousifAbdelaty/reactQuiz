@@ -1,139 +1,214 @@
 {
   "questions": [
     {
-      "question": "Which is the most popular JavaScript framework?",
-      "options": ["Angular", "React", "Svelte", "Vue"],
-      "correctOption": 1,
-      "points": 10
+      "question": "What is React primarily used for?",
+      "options": ["Data science", "Game development", "Building user interfaces", "Machine learning"],
+      "correctOption": 2,
+      "points": 5,
+      "level": "easy"
     },
     {
-      "question": "Which company invented React?",
-      "options": ["Google", "Apple", "Netflix", "Facebook"],
-      "correctOption": 3,
-      "points": 10
-    },
-    {
-      "question": "What's the fundamental building block of React apps?",
-      "options": ["Components", "Blocks", "Elements", "Effects"],
+      "question": "How do you create a React application?",
+      "options": ["create-react-app", "create-react-project", "init-react", "start-react"],
       "correctOption": 0,
-      "points": 10
+      "points": 5,
+      "level": "easy"
     },
     {
-      "question": "What's the name of the syntax we use to describe the UI in React components?",
-      "options": ["FBJ", "Babel", "JSX", "ES2015"],
+      "question": "What does a React component return?",
+      "options": ["HTML", "CSS", "JSX", "JavaScript"],
       "correctOption": 2,
-      "points": 10
+      "points": 5,
+      "level": "easy"
     },
     {
-      "question": "How does data flow naturally in React apps?",
-      "options": [
-        "From parents to children",
-        "From children to parents",
-        "Both ways",
-        "The developers decides"
-      ],
+      "question": "How do you start a React project?",
+      "options": ["npm start", "npm begin", "npm run", "npm serve"],
       "correctOption": 0,
-      "points": 10
+      "points": 5,
+      "level": "easy"
     },
     {
-      "question": "How to pass data into a child component?",
-      "options": ["State", "Props", "PropTypes", "Parameters"],
+      "question": "What is used to pass data to a React component?",
+      "options": ["attributes", "props", "state", "methods"],
       "correctOption": 1,
-      "points": 10
+      "points": 5,
+      "level": "easy"
     },
     {
-      "question": "When to use derived state?",
-      "options": [
-        "Whenever the state should not trigger a re-render",
-        "Whenever the state can be synchronized with an effect",
-        "Whenever the state should be accessible to all components",
-        "Whenever the state can be computed from another state variable"
-      ],
-      "correctOption": 3,
-      "points": 30
-    },
-    {
-      "question": "What triggers a UI re-render in React?",
-      "options": [
-        "Running an effect",
-        "Passing props",
-        "Updating state",
-        "Adding event listeners to DOM elements"
-      ],
+      "question": "Which of the following is a hook in React?",
+      "options": ["useCondition", "useEvent", "useState", "useProperty"],
       "correctOption": 2,
-      "points": 20
+      "points": 5,
+      "level": "easy"
     },
     {
-      "question": "When do we directly \"touch\" the DOM in React?",
-      "options": [
-        "When we need to listen to an event",
-        "When we need to change the UI",
-        "When we need to add styles",
-        "Almost never"
-      ],
-      "correctOption": 3,
-      "points": 20
-    },
-    {
-      "question": "In what situation do we use a callback to update state?",
-      "options": [
-        "When updating the state will be slow",
-        "When the updated state is very data-intensive",
-        "When the state update should happen faster",
-        "When the new state depends on the previous state"
-      ],
-      "correctOption": 3,
-      "points": 30
-    },
-    {
-      "question": "If we pass a function to useState, when will that function be called?",
-      "options": [
-        "On each re-render",
-        "Each time we update the state",
-        "Only on the initial render",
-        "The first time we update the state"
-      ],
-      "correctOption": 2,
-      "points": 30
-    },
-    {
-      "question": "Which hook to use for an API request on the component's initial render?",
-      "options": ["useState", "useEffect", "useRef", "useReducer"],
-      "correctOption": 1,
-      "points": 10
-    },
-    {
-      "question": "Which variables should go into the useEffect dependency array?",
-      "options": [
-        "Usually none",
-        "All our state variables",
-        "All state and props referenced in the effect",
-        "All variables needed for clean up"
-      ],
-      "correctOption": 2,
-      "points": 30
-    },
-    {
-      "question": "An effect will always run on the initial render.",
-      "options": [
-        "True",
-        "It depends on the dependency array",
-        "False",
-        "In depends on the code in the effect"
-      ],
+      "question": "What is the default port for a React app?",
+      "options": ["3000", "8080", "5000", "8000"],
       "correctOption": 0,
-      "points": 30
+      "points": 5,
+      "level": "easy"
     },
     {
-      "question": "When will an effect run if it doesn't have a dependency array?",
-      "options": [
-        "Only when the component mounts",
-        "Only when the component unmounts",
-        "The first time the component re-renders",
-        "Each time the component is re-rendered"
-      ],
+      "question": "What is the command to create a new React app?",
+      "options": ["npx create-react-app my-app", "npm create-react-app my-app", "npx init-react-app my-app", "npm init-react-app my-app"],
+      "correctOption": 0,
+      "points": 5,
+      "level": "easy"
+    },
+    {
+      "question": "Which method is used to update the state in a class component?",
+      "options": ["setState", "updateState", "changeState", "modifyState"],
+      "correctOption": 0,
+      "points": 5,
+      "level": "easy"
+    },
+    {
+      "question": "What does React use to manage data in an application?",
+      "options": ["Props", "Components", "State", "Functions"],
+      "correctOption": 2,
+      "points": 5,
+      "level": "easy"
+    },
+    {
+      "question": "What is a common pattern for fetching data in a React component?",
+      "options": ["Using an event listener", "Using setTimeout", "Using useEffect", "Using a constructor"],
+      "correctOption": 2,
+      "points": 10,
+      "level": "medium"
+    },
+    {
+      "question": "How do you optimize performance in a React application?",
+      "options": ["By using more components", "By reducing state usage", "By using keys in lists", "By avoiding JSX"],
+      "correctOption": 2,
+      "points": 10,
+      "level": "medium"
+    },
+    {
+      "question": "How do you handle asynchronous operations in React?",
+      "options": ["Using callbacks", "Using promises", "Using async/await", "All of the above"],
       "correctOption": 3,
-      "points": 20
+      "points": 10,
+      "level": "medium"
+    },
+    {
+      "question": "How do you create a React Context?",
+      "options": ["React.createContext()", "React.initContext()", "React.newContext()", "React.Context()"],
+      "correctOption": 0,
+      "points": 10,
+      "level": "medium"
+    },
+    {
+      "question": "What is a React Fragment?",
+      "options": ["A type of component", "A way to return multiple elements", "A hook", "A lifecycle method"],
+      "correctOption": 1,
+      "points": 10,
+      "level": "medium"
+    },
+    {
+      "question": "How do you force a re-render in a functional component?",
+      "options": ["By calling setState", "By using useEffect", "By updating the state", "By calling forceUpdate"],
+      "correctOption": 2,
+      "points": 10,
+      "level": "medium"
+    },
+    {
+      "question": "What is the purpose of keys in React?",
+      "options": ["To identify components", "To optimize rendering", "To pass props", "To manage state"],
+      "correctOption": 1,
+      "points": 10,
+      "level": "medium"
+    },
+    {
+      "question": "What is the use of React.memo?",
+      "options": ["To memoize values", "To memoize components", "To optimize hooks", "To manage state"],
+      "correctOption": 1,
+      "points": 10,
+      "level": "medium"
+    },
+    {
+      "question": "What does the useReducer hook do?",
+      "options": ["Manages complex state logic", "Handles side effects", "Fetches data", "Manages refs"],
+      "correctOption": 0,
+      "points": 10,
+      "level": "medium"
+    },
+    {
+      "question": "How do you share state between components?",
+      "options": ["Using props", "Using state", "Using context", "Using lifecycle methods"],
+      "correctOption": 2,
+      "points": 10,
+      "level": "medium"
+    },
+    {
+      "question": "What is the difference between controlled and uncontrolled components?",
+      "options": ["Controlled components manage their own state", "Uncontrolled components manage their own state", "Controlled components are managed by React", "Uncontrolled components are managed by React"],
+      "correctOption": 1,
+      "points": 20,
+      "level": "hard"
+    },
+    {
+      "question": "How do you handle forms in React?",
+      "options": ["Using state", "Using refs", "Using context", "All of the above"],
+      "correctOption": 3,
+      "points": 20,
+      "level": "hard"
+    },
+    {
+      "question": "What is the purpose of React portals?",
+      "options": ["To optimize rendering", "To render children into a different DOM subtree", "To manage state", "To handle events"],
+      "correctOption": 1,
+      "points": 20,
+      "level": "hard"
+    },
+    {
+      "question": "How do you memoize a value in React?",
+      "options": ["Using React.memo", "Using useMemo", "Using useCallback", "Using useRef"],
+      "correctOption": 1,
+      "points": 20,
+      "level": "hard"
+    },
+    {
+      "question": "What is the difference between useEffect and useLayoutEffect?",
+      "options": ["useEffect runs after painting, useLayoutEffect runs before painting", "useEffect runs before painting, useLayoutEffect runs after painting", "useEffect runs on every render, useLayoutEffect runs only on updates", "useLayoutEffect is synchronous, useEffect is asynchronous"],
+      "correctOption": 3,
+      "points": 20,
+      "level": "hard"
+    },
+    {
+      "question": "How do you handle errors in a React component?",
+      "options": ["Using try-catch", "Using error boundaries", "Using hooks", "Using state"],
+      "correctOption": 1,
+      "points": 20,
+      "level": "hard"
+    },
+    {
+      "question": "What is the purpose of useCallback hook?",
+      "options": ["To memoize functions", "To memoize components", "To manage state", "To handle side effects"],
+      "correctOption": 0,
+      "points": 20,
+      "level": "hard"
+    },
+    {
+      "question": "How do you prevent unnecessary re-renders in React?",
+      "options": ["Using React.memo", "Using shouldComponentUpdate", "Using PureComponent", "All of the above"],
+      "correctOption": 3,
+      "points": 20,
+      "level": "hard"
+    },
+    {
+      "question": "How do you manage side effects in React?",
+      "options": ["Using useEffect", "Using useMemo", "Using useCallback", "Using useState"],
+      "correctOption": 0,
+      "points": 20,
+      "level": "hard"
+    },
+    {
+      "question": "What is the purpose of React's useRef hook?",
+      "options": ["To manage state", "To handle side effects", "To create a reference to a DOM element", "To create a context"],
+      "correctOption": 2,
+      "points": 20,
+      "level": "hard"
     }
   ]
 }

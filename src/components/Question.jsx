@@ -1,11 +1,16 @@
 import Option from "./Option";
 
 /* eslint-disable react/prop-types */
-const Question = ({ question, answer, dispatch }) => {
+const Question = ({ question, index, answer, dispatch }) => {
   return (
     <div>
       <h4>{question.question}</h4>
-      <Option question={question} dispatch={dispatch} answer={answer} />
+      <Option
+        question={question}
+        index={index}
+        dispatch={dispatch}
+        answer={answer}
+      />
     </div>
   );
 };

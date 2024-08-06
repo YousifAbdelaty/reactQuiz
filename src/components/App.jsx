@@ -13,19 +13,22 @@ import RestartButton from "./RestartButton";
 import Footer from "./Footer";
 import Timer from "./Timer";
 const SEC_PER_Q = 30;
+let REFRENCE_DATA;
 const initialState = {
   questions: [],
   // 'loading','error','ready','active','finshed'//
   status: "loading",
   index: 0,
-  answer: null,
+  answer: [],
   score: 0,
   highScore: 0,
+  level: null,
   secondsRemaining: null,
 };
 function reducer(state, action) {
   switch (action.type) {
     case "dataReceived":
+      REFRENCE_DATA = action.payload;
       return { ...state, questions: action.payload, status: "ready" };
     case "tick":
       return {
@@ -33,6 +36,17 @@ function reducer(state, action) {
         status: state.secondsRemaining === 0 ? "finished" : state.status,
         secondsRemaining: state.secondsRemaining - 1,
       };
+    case "chooseLevel":
+      const questionsAfterLevelChosen = REFRENCE_DATA.filter(
+        (q) => q.level == action.payload
+      );
+
+      return {
+        ...state,
+        questions: questionsAfterLevelChosen,
+        level: action.payload,
+      };
+
     case "dataFailed":
       return { ...state, status: "error" };
     case "start":
@@ -45,18 +59,20 @@ function reducer(state, action) {
       const currentQuestion = state.questions[state.index];
       return {
         ...state,
-        answer: action.payload,
+        answer: [...state.answer, action.payload],
         score:
           action.payload === currentQuestion.correctOption
             ? state.score + currentQuestion.points
             : state.score,
       };
     case "nextQuestion":
-      return { ...state, index: state.index + 1, answer: null };
+      return { ...state, index: state.index + 1 };
+    case "previousQuestion":
+      return { ...state, index: state.index - 1 };
     case "restart":
       return {
         ...initialState,
-        status: "active",
+        status: "ready",
         questions: state.questions,
         highScore: state.highScore,
       };
@@ -75,7 +91,16 @@ function reducer(state, action) {
 }
 const App = () => {
   const [
-    { questions, secondsRemaining, highScore, answer, index, status, score },
+    {
+      questions,
+      secondsRemaining,
+      level,
+      highScore,
+      answer,
+      index,
+      status,
+      score,
+    },
     dispatch,
   ] = useReducer(reducer, initialState);
   const questionsNumber = questions.length;
@@ -124,6 +149,7 @@ const App = () => {
               dispatch={dispatch}
               answer={answer}
               question={questions[index]}
+              index={index}
             />
 
             <Footer>
@@ -138,7 +164,11 @@ const App = () => {
           </>
         )}
         {status === "ready" && (
-          <Startscreen questionsNumber={questionsNumber} dispatch={dispatch} />
+          <Startscreen
+            questionsNumber={questionsNumber}
+            level={level}
+            dispatch={dispatch}
+          />
         )}
       </Master>
     </div>
